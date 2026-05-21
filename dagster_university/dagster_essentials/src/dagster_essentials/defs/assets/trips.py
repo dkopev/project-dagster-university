@@ -4,10 +4,11 @@ import dagster as dg
 
 
 # src/dagster_essentials/defs/assets/trips.py
+@dg.asset
 def taxi_trips_file() -> None:
-    """
-      The raw parquet files for the taxi trips dataset. Sourced from the NYC Open Data portal.
-    """
+
+    """The raw parquet files for the taxi trips dataset. Sourced from the NYC Open Data portal."""
+
     month_to_fetch = '2023-03'
     raw_trips = requests.get(
         f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{month_to_fetch}.parquet"
