@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from dagster_essentials.defs.assets import constants
+from dagster_essentials.defs.partitions import weekly_partition
 
 @dg.asset(
     deps=["taxi_trips", "taxi_zones"]

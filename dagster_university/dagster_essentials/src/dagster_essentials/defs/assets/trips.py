@@ -37,7 +37,7 @@ def taxi_zones_file() -> None:
     with open(constants.TAXI_ZONES_FILE_PATH, "wb") as output_file:
         output_file.write(raw_taxi_zones.content)
 
-@@dg.asset(
+@dg.asset(
   deps=["taxi_trips_file"],
   partitions_def=monthly_partition,
 )
@@ -68,7 +68,7 @@ def taxi_trips(context: dg.AssetExecutionContext, database: DuckDBResource) -> N
 
   with database.get_connection() as conn:
       conn.execute(query)
-      
+
 @dg.asset(
     deps=["taxi_zones_file"]
 )
